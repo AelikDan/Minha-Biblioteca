@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minha Biblioteca</title>
+<meta name="description" content="Editor de livros no navegador: páginas duplas, imagens, temas e backup.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📖%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="logo"><span>✦</span> Minha Biblioteca</div>
+    <nav id="book-list" aria-label="Livros"></nav>
+    <button class="btn ghost" data-act="new-book">+ Novo livro</button>
+  </aside>
+  <main class="main">
+    <header class="toolbar">
+      <button class="btn menu-btn" data-act="toggle-sidebar" aria-label="Abrir lista de livros">☰</button>
+      <div class="group">
+        <button class="btn" data-act="block" data-type="title">Título</button>
+        <button class="btn" data-act="block" data-type="subtitle">Subtítulo</button>
+        <button class="btn" data-act="block" data-type="section">Sessão</button>
+        <button class="btn" data-act="block" data-type="quote">Citação</button>
+        <button class="btn" data-act="block" data-type="normal">Texto</button>
+      </div>
+      <div class="group">
+        <button class="btn" data-act="align" data-v="left" title="Alinhar à esquerda">⇤</button>
+        <button class="btn" data-act="align" data-v="center" title="Centralizar">↔</button>
+        <button class="btn" data-act="align" data-v="right" title="Alinhar à direita">⇥</button>
+      </div>
+      <div class="group">
+        <button class="btn" data-act="image" title="Inserir imagem (ou arraste/cole uma)">Imagem</button>
+        <button class="btn" data-act="add-pages" title="Inserir duas páginas depois destas">+ Páginas</button>
+        <button class="btn" data-act="del-pages" title="Excluir estas duas páginas">− Páginas</button>
+      </div>
+      <div class="group">
+        <button class="btn" data-act="backup" title="Baixar backup (.json)">Backup</button>
+        <button class="btn" data-act="restore" title="Restaurar um backup">Importar</button>
+        <button class="btn" data-act="print" title="Imprimir ou salvar em PDF">Imprimir</button>
+        <select id="theme" aria-label="Tema">
+          <option value="classico">Clássico</option>
+          <option value="claro">Claro</option>
+          <option value="noite">Noite</option>
+        </select>
+      </div>
+      <div class="status"><i class="dot ok" id="dot"></i><span id="status">Salvo</span></div>
+    </header>
+    <section class="stage" id="stage"></section>
+  </main>
+</div>
+<div id="print"></div>
+<input type="file" id="file-img" accept="image/*" hidden>
+<input type="file" id="file-json" accept="application/json,.json" hidden>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
